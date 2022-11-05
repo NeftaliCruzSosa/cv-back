@@ -6,6 +6,7 @@ require("dotenv").config();
 
 const indexRoutes = require("./src/api/index/index.routes");
 const usersRoutes = require("./src/api/users/users.routes");
+const curriculumsRoutes = require("./src/api/curriculums/curriculums.routes");
 
 db.connectDb();
 
@@ -29,9 +30,7 @@ server.use(express.json({limit: "5mb"}));
 server.use(express.urlencoded({ extended: false }));
 
 server.use("/", indexRoutes);
-server.use("/players", playersRoutes);
-server.use("/sports", sportsRoutes);
-server.use("/teams", teamsRoutes);
+server.use("/curriculums", curriculumsRoutes);
 server.use("/users", usersRoutes);
 
 server.use("", (req, res) => {
