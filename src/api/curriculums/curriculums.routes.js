@@ -4,7 +4,7 @@ const User = require("../users/users.model");
 const router = express.Router();
 const { isAuth, isAdmin } = require("../../middlewares/auth");
 const upload = require("../../middlewares/file");
-const deleteFile = require("../../middlewares/deleteFile");
+const { deleteFile } = require("../../middlewares/deleteFile");
 
 //* Get logged user curriculum
 router.get("/", [isAuth], async (req, res, next) => {
