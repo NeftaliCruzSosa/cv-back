@@ -15,4 +15,4 @@ const deleteFile = (imgUrl) => {
     
 }
 
-module.exports = { deleteFile }
+module.exports = deleteFile
