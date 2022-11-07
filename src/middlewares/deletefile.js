@@ -11,4 +11,4 @@ const deleteFile = (imgUrl) => {
   });
 };
 
-export{deleteFile}
+module.exports = {deleteFile};
