@@ -42,5 +42,7 @@ server.use((error, req, res, next) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`Server running here --> http://localhost:${PORT}`);
+  console.log(`Server running in port --> ${PORT}`);
 });
+
+module.exports = server
