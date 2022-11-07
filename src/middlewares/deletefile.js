@@ -1,6 +1,6 @@
 const cloudinary = require("cloudinary").v2;
 
-const deleteFiles = (imgUrl) => {
+const deleteFile = (imgUrl) => {
   const imgSplited = imgUrl.split("/");
   const nameSplited = imgSplited[imgSplited.length - 1].split(".")[0];
   const folderSplited = imgSplited[imgSplited.length - 2];
@@ -11,4 +11,4 @@ const deleteFiles = (imgUrl) => {
   });
 };
 
-module.exports = deleteFiles;
+module.exports = deleteFile;

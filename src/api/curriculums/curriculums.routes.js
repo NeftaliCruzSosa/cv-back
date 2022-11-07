@@ -4,7 +4,7 @@ const User = require("../users/users.model");
 const router = express.Router();
 const { isAuth, isAdmin } = require("../../middlewares/auth");
 const upload = require("../../middlewares/file");
-const { deleteFile } = require("../../middlewares/deleteFile");
+const deleteFile = require("../../middlewares/deleteFile");
 
 //* Get logged user curriculum
 router.get("/", [isAuth], async (req, res, next) => {
@@ -80,7 +80,7 @@ router.delete("/delete", [isAuth], async (req, res, next) => {
         const oldCurriculumId = oldUser.curriculum._id.toString();
     //   const curriculum = await Curriculum.findById(id);
     //   if (curriculum.profilePic) {
-    //     deleteFile(curriculum.profilePic);
+    //     deleteFiles(curriculum.profilePic);
     //   }
       const curriculumToDelete = await Curriculum.findByIdAndDelete(oldCurriculumId);
       return res.status(200).json(`Deleted --> ${curriculumToDelete.name}`);
@@ -95,7 +95,7 @@ router.delete("/deleteById/:id", [isAdmin], async (req, res, next) => {
     const id = req.params.id;
     const curriculum = await Curriculum.findById(id);
     if (curriculum.profilePic) {
-      deleteFile(curriculum.profilePic);
+      deleteFiles(curriculum.profilePic);
     }
     const curriculumToDelete = await Curriculum.findByIdAndDelete(id);
     return res.status(200).json(`Deleted --> ${curriculumToDelete.name}`);
